@@ -52,13 +52,16 @@ Also please note that this is not valid JSON. Just an example for how the output
       },
       "name": "Altmarkt",
       "total": 400,
-      "free": 235,
-      "state": "open|closed|nodata",
+      "free": 235, // >= 0, optional, can be missing, if no live data available
+      "state": "open|closed|nodata|unknown",
       "id": "lot_id",
       "forecast": true|false,
       "region": "Region X", // optional
       "address": "Musterstraße 5", // optional
-      "lot_type": "Parkhaus" // optional
+      "lot_type": "Parkhaus", // optional,
+      "opening_hours": "24/7", // optional, in OSM opening_hours syntax
+      "fee_hours": "Mo-Fr 07:00-22:00; PH off", // optional, in OSM opening_hours syntax
+      "url": "http://examplecity.com/parken/Altmarkt" // optional
     },
     ...
 }
@@ -67,7 +70,7 @@ Also please note that this is not valid JSON. Just an example for how the output
 
 ### Setup your own server
 
- - First you will need python (at least 3.3), pip and virtualenv installed. In the following it is assumed that python is python3 and virtualenv is virtualenv3. If this is not the case for your distribution please use the correct executables. If virtualenv3 is not available, use virtualenv -p /usr/bin/python3.
+ - First you will need python (at least 3.7), pip and virtualenv installed. In the following it is assumed that python is python3 and virtualenv is virtualenv3. If this is not the case for your distribution please use the correct executables. If virtualenv3 is not available, use virtualenv -p /usr/bin/python3.
  
  - Install the following packages: postgresql libpq-dev
 
