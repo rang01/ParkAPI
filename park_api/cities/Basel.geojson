@@ -194,5 +194,16 @@
       "address": "Güterstrasse 115",
       "total": 100
     }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.5927014, 47.5545146]
+    },
+    "properties": {
+      "name": "Parkhaus Kunstmuseum",
+      "address": "St. Alban-Graben 3",
+      "total": 350
+    }
   }]
 }

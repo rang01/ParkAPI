@@ -93,14 +93,35 @@ Also please note that this is not valid JSON. Just an example for how the output
         $ sudo -u postgres createuser -P -d park_api  
         $ sudo -u postgres createdb -O park_api park_api
 
+ - Configure ParkAPI:
+ 
+   Copy the [config_example.ini](config_example.ini) to `config.ini` and 
+   adjust the settings as needed.
+   
+   The main categories in the config.ini are:
+   
+   - `DEFAULT`: These are the default values for all categories.
+   - `development`: Default when running the scraper or server.
+   - `testing`: Used when running the unittests.
+   - `production`: as well as any other key is activated through the 
+     *environment* of the operating system by setting a variable called `env`.
+   
+ - Run the database migrations once for development
+        
+        (venv) $ ./bin/parkapi-setupdb
+        
+   And once for testing
+   
+        (venv) $ env=testing ./bin/parkapi-setupdb     
+        
  - Run the server:
 
-        $ bin/parkapi-server
+        (venv) $ ./bin/parkapi-server
 
  - Run the tests:
 
-        $ python -m unittest discover tests
-        
+        (venv) $ python -m unittest discover tests
+
 Throwing errors? Sure you installed the requirements and are using Python 3.x? Still nothing? Please [tell us](https://github.com/offenesdresden/ParkAPI/issues/new) about it.
 
 ### Adding support for a new city
